@@ -26,15 +26,13 @@ export default {
   mounted() {
     let url = this.base_api_url + this.base_projects_url;
 
-    // this.callAPI(url);
-
     this.state.getProjects(url);
   },
 };
 </script>
 
 <template>
-  <ProjectCard v-for="project in this.state.projects" :project="project"> </ProjectCard>
+  <ProjectCard v-for="project in this.state.projects" :project="project"></ProjectCard>
 </template>
 
 <style></style>
