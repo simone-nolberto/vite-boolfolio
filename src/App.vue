@@ -1,7 +1,7 @@
 <script>
-import axios from "axios";
 import { state } from "./state";
-import ProjectCard from "./components/ProjectCard.vue";
+
+import { RouterLink, RouterView } from "vue-router";
 
 export default {
   name: "App",
@@ -9,24 +9,7 @@ export default {
   data() {
     return {
       state,
-
-      base_api_url: "http://127.0.0.1:8000",
-      base_projects_url: "/api/projects",
-
-      loading: true,
     };
-  },
-
-  components: {
-    ProjectCard,
-  },
-
-  methods: {},
-
-  mounted() {
-    let url = this.base_api_url + this.base_projects_url;
-
-    this.state.getProjects(url);
   },
 };
 </script>
@@ -50,15 +33,20 @@ export default {
         <div class="collapse navbar-collapse" id="collapsibleNavId">
           <ul class="navbar-nav me-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="#" aria-current="page"
-                >Home <span class="visually-hidden">(current)</span></a
+              <router-link class="nav-link" :to="{ name: 'home' }">Home</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'projects' }"
+                >Projects</router-link
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <router-link class="nav-link" :to="{ name: 'about' }">About</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
+              <router-link class="nav-link" :to="{ name: 'contacts' }"
+                >Contact</router-link
+              >
             </li>
           </ul>
         </div>
@@ -66,48 +54,9 @@ export default {
     </nav>
   </header>
 
-  <div class="container">
-    <div class="row">
-      <ProjectCard
-        v-for="project in this.state.projects.data"
-        :project="project"
-      ></ProjectCard>
-    </div>
-  </div>
-
-  <div class="container">
-    <nav aria-label="Page navigation">
-      <ul class="pagination">
-        <li class="page-item" v-show="this.state.projects.prev_page_url != null">
-          <button
-            class="page-link"
-            href="#"
-            @click="this.state.getProjects(this.state.projects.prev_page_url)"
-            aria-label="Previous"
-          >
-            <span aria-hidden="true">&laquo;</span>
-          </button>
-        </li>
-        <!-- <li class="page-item active">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">3</a>
-        </li> -->
-        <li class="page-item" v-show="this.state.projects.next_page_url != null">
-          <button
-            class="page-link"
-            href="#"
-            @click="this.state.getProjects(this.state.projects.next_page_url)"
-            aria-label="Next"
-          >
-            <span aria-hidden="true">&raquo;</span>
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <main>
+    <RouterView></RouterView>
+  </main>
 
   <footer>Footer</footer>
 </template>
