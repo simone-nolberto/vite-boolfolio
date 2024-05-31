@@ -1,11 +1,21 @@
 <script>
+import Banner from "../components/Banner.vue";
+
 export default {
   name: "AppHome",
+  components: {
+    Banner,
+  },
 };
 </script>
 
 <template>
-  <h1>this is my home page</h1>
+  <Banner
+    bannerTitle="This is SimoneNolberto.com"
+    bannerParagraph="Hi, welcome in! Feel free to navigate and explore what I've done so far!"
+    bannerCTA="Explore my projects"
+    bannerCTAUrl="projects"
+  ></Banner>
 </template>
 
 <style></style>

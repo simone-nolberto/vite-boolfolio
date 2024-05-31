@@ -1,5 +1,6 @@
 <script>
 import { state } from "../state";
+import Banner from "../components/Banner.vue";
 
 import ProjectCard from "../components/ProjectCard.vue";
 
@@ -19,6 +20,7 @@ export default {
 
   components: {
     ProjectCard,
+    Banner,
   },
 
   mounted() {
@@ -30,9 +32,14 @@ export default {
 </script>
 
 <template>
-  <h1>These are my projects</h1>
+  <Banner
+    bannerTitle="These are my projects"
+    bannerParagraph="Lots have already been done, but I keep studying to get better and better!"
+    bannerCTA="Learn more about me"
+    bannerCTAUrl="about"
+  ></Banner>
 
-  <div class="container">
+  <div class="container my-5">
     <div class="row">
       <ProjectCard
         v-for="project in this.state.projects.data"
@@ -43,8 +50,8 @@ export default {
 
   <div class="container">
     <nav aria-label="Page navigation">
-      <ul class="pagination">
-        <li class="page-item" v-show="this.state.projects.prev_page_url != null">
+      <ul class="pagination d-flex justify-content-between">
+        <li class="page-item" v-if="this.state.projects.prev_page_url != null">
           <button
             class="page-link"
             href="#"

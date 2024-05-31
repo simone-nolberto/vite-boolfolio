@@ -1,11 +1,21 @@
 <script>
+import Banner from "../components/Banner.vue";
+
 export default {
   name: "AppAbout",
+  components: {
+    Banner,
+  },
 };
 </script>
 
 <template>
-  <h1>This is my story</h1>
+  <Banner
+    bannerTitle="Here you will find everything you need to know about me...maybe!"
+    bannerParagraph="This is my story"
+    bannerCTA="Get in touch"
+    bannerCTAUrl="contacts"
+  ></Banner>
 </template>
 
 <style></style>
