@@ -9,6 +9,7 @@ export const state = reactive({
 
     projects: [],
     project: '',
+    success: '',
 
     getProjects(url) {
         axios.get(url)
@@ -23,9 +24,10 @@ export const state = reactive({
     getProject(url) {
         axios.get(url)
             .then(response => {
-                console.log(response.data.response);
+                console.log(response.data);
                 this.project = response.data.response;
-                console.log(this.project);
+                this.success = response.data.success;
+                console.log(this.project, this.success);
             })
     }
 

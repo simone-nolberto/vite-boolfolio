@@ -27,10 +27,11 @@ export default {
   <div>
     <!-- Project {{ $route.params.id }} -->
 
-    <div class="container my-5">
-      <div class="row">
-        <div class="col">
-          <!-- <div>
+    <template v-if="this.state.success">
+      <div class="container my-5">
+        <div class="row">
+          <div class="col">
+            <!-- <div>
             <template v-if="this.state.project.cover_image.startsWith('uploads')">
               <img
                 :src="
@@ -43,24 +44,29 @@ export default {
               <img :src="this.state.project.cover_image" alt="" />
             </template>
           </div> -->
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-title">
-              <h3>{{ this.state.project.project_title }}</h3>
-            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-title">
+                <h3>{{ this.state.project.project_title }}</h3>
+              </div>
 
-            <div class="card-body">
-              {{ this.state.project.description }}
-            </div>
+              <div class="card-body">
+                {{ this.state.project.description }}
+              </div>
 
-            <div class="card-footer">
-              <h5>by {{ this.state.project.author }}</h5>
+              <div class="card-footer">
+                <h5>by {{ this.state.project.author }}</h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </template>
+
+    <template v-else>
+      <p>{{ this.state.project }}</p>
+    </template>
   </div>
 </template>
 
