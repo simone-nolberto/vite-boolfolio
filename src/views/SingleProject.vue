@@ -33,7 +33,7 @@ export default {
     <!-- Project {{ $route.params.id }} -->
 
     <Banner
-      bannerTitle="this.state.project.project_title"
+      :bannerTitle="state.project.project_title"
       bannerParagraph="Take a look at this project by"
       bannerCTA="Back to projects"
       bannerCTAUrl="projects"
