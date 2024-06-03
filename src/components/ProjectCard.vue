@@ -14,7 +14,7 @@ export default {
 
 <template>
   <div class="col">
-    <router-link to="/projects/this.project.id">
+    <router-link :to="{ name: 'project', params: { id: this.project.id } }">
       <div class="card" style="width: 18rem">
         <div class="card-body">
           <h5 class="card-title">{{ this.project.project_title }}</h5>
@@ -44,8 +44,8 @@ export default {
             </ul>
           </span>
         </div>
-      </div></router-link
-    >
+      </div>
+    </router-link>
   </div>
 </template>
 

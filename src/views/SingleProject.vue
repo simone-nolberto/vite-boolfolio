@@ -31,19 +31,19 @@ export default {
       <div class="container my-5">
         <div class="row">
           <div class="col">
-            <!-- <div>
-            <template v-if="this.state.project.cover_image.startsWith('uploads')">
-              <img
-                :src="
-                  this.state.base_url_api + '/storage/' + this.state.project.cover_image
-                "
-                alt=""
-            /></template>
+            <div>
+              <template v-if="this.state.project.cover_image.startsWith('uploads')">
+                <img
+                  :src="
+                    this.state.base_url_api + '/storage/' + this.state.project.cover_image
+                  "
+                  alt=""
+              /></template>
 
-            <template v-else>
-              <img :src="this.state.project.cover_image" alt="" />
-            </template>
-          </div> -->
+              <template v-else>
+                <img :src="this.state.project.cover_image" alt="" />
+              </template>
+            </div>
           </div>
           <div class="col">
             <div class="card">
