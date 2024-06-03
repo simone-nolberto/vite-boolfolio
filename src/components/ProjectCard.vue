@@ -14,6 +14,8 @@ export default {
 
 <template>
   <div class="col">
+    <!-- <router-link :to="{ name: 'project', id }"> </router-link> -->
+
     <div class="card" style="width: 18rem">
       <div class="card-body">
         <h5 class="card-title">{{ this.project.project_title }}</h5>

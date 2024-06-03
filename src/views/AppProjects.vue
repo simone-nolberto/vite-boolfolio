@@ -38,7 +38,7 @@ export default {
 
   <div class="container">
     <nav aria-label="Page navigation">
-      <div class="pagination d-flex align-items-center">
+      <div class="pagination d-flex align-items-center gap-0">
         <span class="page-item" v-if="this.state.projects.prev_page_url != null">
           <button
             class="page-link"

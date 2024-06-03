@@ -6,7 +6,9 @@ export const state = reactive({
     base_api_url: "http://127.0.0.1:8000",
     base_projects_url: "/api/projects",
 
+
     projects: [],
+    project: '',
 
     getProjects(url) {
         axios.get(url)
@@ -16,6 +18,18 @@ export const state = reactive({
                 // console.log(this.projects.data);
             })
     },
+
+
+    getProject(url) {
+        axios.get(url)
+            .then(response => {
+                console.log(response.data.response);
+                this.project = response.data.response;
+                console.log(this.project);
+            })
+    }
+
+
 
 
 })
