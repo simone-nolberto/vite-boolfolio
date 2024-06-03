@@ -1,5 +1,6 @@
 <script>
 import { state } from "../state";
+import Banner from "../components/Banner.vue";
 
 export default {
   name: "SingleProject",
@@ -9,6 +10,10 @@ export default {
       state,
       loading: true,
     };
+  },
+
+  components: {
+    Banner,
   },
 
   mounted() {
@@ -26,6 +31,13 @@ export default {
 <template>
   <div>
     <!-- Project {{ $route.params.id }} -->
+
+    <Banner
+      bannerTitle="this.state.project.project_title"
+      bannerParagraph="Take a look at this project by"
+      bannerCTA="Back to projects"
+      bannerCTAUrl="projects"
+    ></Banner>
 
     <template v-if="this.state.success">
       <div class="container my-5">
