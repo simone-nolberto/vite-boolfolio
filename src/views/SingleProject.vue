@@ -61,7 +61,7 @@ export default {
       bannerCTAUrl="projects"
     ></Banner>
 
-    <template v-if="this.state.success">
+    <template v-if="this.success">
       <div class="container my-5">
         <div class="row">
           <div class="col">
