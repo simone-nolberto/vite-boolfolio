@@ -1,4 +1,5 @@
 <script>
+import axios from "axios";
 import { state } from "../state";
 import Banner from "../components/Banner.vue";
 
@@ -8,12 +9,33 @@ export default {
   data() {
     return {
       state,
+      project: "",
+      success: "",
       loading: true,
     };
   },
 
   components: {
     Banner,
+  },
+
+  methods: {
+    getProject(url) {
+      axios.get(url).then((response) => {
+        console.log(response.data);
+
+        this.project = response.data.response;
+        // console.log(this.project);
+
+        if (response.data.success) {
+          this.success = response.data.success;
+          this.project = response.data.response;
+        } else {
+          console.log(this.project, this.success);
+          this.$router.push({ name: "notFound" });
+        }
+      });
+    },
   },
 
   mounted() {
@@ -23,7 +45,7 @@ export default {
       "/" +
       this.$route.params.id;
 
-    this.state.getProject(url);
+    this.getProject(url);
   },
 };
 </script>
@@ -33,7 +55,7 @@ export default {
     <!-- Project {{ $route.params.id }} -->
 
     <Banner
-      :bannerTitle="state.project.project_title"
+      :bannerTitle="project.project_title"
       bannerParagraph="Take a look at this project by"
       bannerCTA="Back to projects"
       bannerCTAUrl="projects"
@@ -44,31 +66,29 @@ export default {
         <div class="row">
           <div class="col">
             <div>
-              <template v-if="this.state.project.cover_image.startsWith('uploads')">
+              <template v-if="this.project.cover_image.startsWith('uploads')">
                 <img
-                  :src="
-                    this.state.base_url_api + '/storage/' + this.state.project.cover_image
-                  "
+                  :src="this.state.base_url_api + '/storage/' + this.project.cover_image"
                   alt=""
               /></template>
 
               <template v-else>
-                <img :src="this.state.project.cover_image" alt="" />
+                <img :src="this.project.cover_image" alt="" />
               </template>
             </div>
           </div>
           <div class="col">
             <div class="card">
               <div class="card-title">
-                <h3>{{ this.state.project.project_title }}</h3>
+                <h3>{{ this.project.project_title }}</h3>
               </div>
 
               <div class="card-body">
-                {{ this.state.project.description }}
+                {{ this.project.description }}
               </div>
 
               <div class="card-footer">
-                <h5>by {{ this.state.project.author }}</h5>
+                <h5>by {{ this.project.author }}</h5>
               </div>
             </div>
           </div>
@@ -77,7 +97,7 @@ export default {
     </template>
 
     <template v-else>
-      <p>{{ this.state.project }}</p>
+      <p>Burodogah</p>
     </template>
   </div>
 </template>

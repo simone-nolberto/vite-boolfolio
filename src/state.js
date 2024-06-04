@@ -8,30 +8,15 @@ export const state = reactive({
 
 
     projects: [],
-    project: '',
-    success: '',
+
 
     getProjects(url) {
         axios.get(url)
             .then(response => {
-                console.log(response.data.projects);
+                // console.log(response.data.projects);
                 this.projects = response.data.projects;
                 // console.log(this.projects.data);
             })
     },
-
-
-    getProject(url) {
-        axios.get(url)
-            .then(response => {
-                console.log(response.data);
-                this.project = response.data.response;
-                this.success = response.data.success;
-                console.log(this.project, this.success);
-            })
-    }
-
-
-
 
 })

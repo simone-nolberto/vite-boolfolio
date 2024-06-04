@@ -4,6 +4,7 @@ import AppProjects from "./views/AppProjects.vue"
 import AppAbout from "./views/AppAbout.vue";
 import AppContacts from "./views/AppContacts.vue";
 import SingleProject from "./views/SingleProject.vue";
+import NotFound from "./views/NotFound.vue";
 
 
 
@@ -16,6 +17,8 @@ const router = createRouter({
         { path: '/projects/:id', name: 'project', component: SingleProject },
         { path: '/about', name: 'about', component: AppAbout },
         { path: '/contacts', name: 'contacts', component: AppContacts },
+        { path: '/:patchMatch(.*)*', name: 'notFound', component: NotFound },
+
 
     ]
 
