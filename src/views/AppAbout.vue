@@ -16,6 +16,8 @@ export default {
     bannerCTA="Get in touch"
     bannerCTAUrl="contacts"
   ></Banner>
+
+  <main></main>
 </template>
 
 <style></style>

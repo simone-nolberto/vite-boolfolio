@@ -36,40 +36,42 @@ export default {
     bannerCTAUrl="about"
   ></Banner>
 
-  <div class="container">
-    <nav aria-label="Page navigation">
-      <div class="pagination d-flex align-items-center gap-0">
-        <span class="page-item" v-if="this.state.projects.prev_page_url != null">
-          <button
-            class="page-link"
-            href="#"
-            @click="this.state.getProjects(this.state.projects.prev_page_url)"
-            aria-label="Previous"
-          >
-            <span aria-hidden="true">&laquo;</span>
-          </button>
-        </span>
-        <div class="container my-5">
-          <div class="row">
-            <ProjectCard
-              v-for="project in this.state.projects.data"
-              :project="project"
-            ></ProjectCard>
+  <main>
+    <div class="container">
+      <nav aria-label="Page navigation">
+        <div class="pagination d-flex align-items-center gap-0">
+          <span class="page-item" v-if="this.state.projects.prev_page_url != null">
+            <button
+              class="page-link"
+              href="#"
+              @click="this.state.getProjects(this.state.projects.prev_page_url)"
+              aria-label="Previous"
+            >
+              <span aria-hidden="true">&laquo;</span>
+            </button>
+          </span>
+          <div class="container my-5">
+            <div class="row">
+              <ProjectCard
+                v-for="project in this.state.projects.data"
+                :project="project"
+              ></ProjectCard>
+            </div>
           </div>
+          <span class="page-item" v-show="this.state.projects.next_page_url != null">
+            <button
+              class="page-link"
+              href="#"
+              @click="this.state.getProjects(this.state.projects.next_page_url)"
+              aria-label="Next"
+            >
+              <span aria-hidden="true">&raquo;</span>
+            </button>
+          </span>
         </div>
-        <span class="page-item" v-show="this.state.projects.next_page_url != null">
-          <button
-            class="page-link"
-            href="#"
-            @click="this.state.getProjects(this.state.projects.next_page_url)"
-            aria-label="Next"
-          >
-            <span aria-hidden="true">&raquo;</span>
-          </button>
-        </span>
-      </div>
-    </nav>
-  </div>
+      </nav>
+    </div>
+  </main>
 </template>
 
 <style></style>

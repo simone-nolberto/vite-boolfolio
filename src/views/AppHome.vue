@@ -16,6 +16,8 @@ export default {
     bannerCTA="Explore my projects"
     bannerCTAUrl="projects"
   ></Banner>
+
+  <main></main>
 </template>
 
 <style></style>
