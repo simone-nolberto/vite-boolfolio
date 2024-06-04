@@ -7,7 +7,7 @@ export default {
 </script>
 
 <template>
-  <footer>
+  <footer class="bg-secondary bg-gradient">
     <div class="container">
       <div class="row d-flex gap-5">
         <div class="col">
@@ -61,15 +61,19 @@ export default {
           </ul>
         </div>
         <div class="col text-center">
-          <ul class="list-unstyled link-unstyled">
+          <ul class="socials">
             <li>
               <a href="#"><i class="fa-brands fa-youtube"></i></a>
             </li>
             <li>
-              <a href="#"><i class="fa-brands fa-github"></i></a>
+              <a href="https://github.com/simone-nolberto"
+                ><i class="fa-brands fa-github"></i
+              ></a>
             </li>
             <li>
-              <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://www.linkedin.com/in/simone-nolberto-908a29224/"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
             </li>
           </ul>
         </div>

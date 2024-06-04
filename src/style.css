@@ -2,12 +2,9 @@
 
     height: 300px;
 
-
-
     & img {
 
         width: 100%;
-
 
     }
 
@@ -16,16 +13,34 @@
 
 main {
 
-    min-height: calc(100vh - 279px);
-
+    min-height: calc(100vh - 270px);
 }
 
 footer {
 
     & button {
-
-        background-color: rgb(0, 255, 132);
+        background-color: white;
+        border: 1px solid;
         border-radius: 1rem;
+        width: 100px;
+        margin: 0.75rem 0;
+
+    }
+
+    & button:hover {
+
+        background-color: palevioletred;
+    }
+
+    .socials {
+
+        list-style: none;
+        text-decoration: none;
+
+        & a {
+            color: white;
+            font-size: 50px;
+        }
 
     }
 

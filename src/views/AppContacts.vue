@@ -18,7 +18,7 @@ export default {
   ></Banner>
 
   <main>
-    <div class="container">
+    <div class="container my-5">
       <form action="">
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
