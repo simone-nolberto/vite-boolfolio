@@ -61,44 +61,48 @@ export default {
       bannerCTAUrl="projects"
     ></Banner>
 
-    <template v-if="this.success">
-      <div class="container my-5">
-        <div class="row">
-          <div class="col">
-            <div>
-              <template v-if="this.project.cover_image.startsWith('uploads')">
-                <img
-                  :src="this.state.base_url_api + '/storage/' + this.project.cover_image"
-                  alt=""
-              /></template>
+    <main>
+      <template v-if="this.success">
+        <div class="container my-5">
+          <div class="row">
+            <div class="col">
+              <div>
+                <template v-if="this.project.cover_image.startsWith('uploads')">
+                  <img
+                    :src="
+                      this.state.base_url_api + '/storage/' + this.project.cover_image
+                    "
+                    alt=""
+                /></template>
 
-              <template v-else>
-                <img :src="this.project.cover_image" alt="" />
-              </template>
+                <template v-else>
+                  <img :src="this.project.cover_image" alt="" />
+                </template>
+              </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="card-title">
-                <h3>{{ this.project.project_title }}</h3>
-              </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-title">
+                  <h3>{{ this.project.project_title }}</h3>
+                </div>
 
-              <div class="card-body">
-                {{ this.project.description }}
-              </div>
+                <div class="card-body">
+                  {{ this.project.description }}
+                </div>
 
-              <div class="card-footer">
-                <h5>by {{ this.project.author }}</h5>
+                <div class="card-footer">
+                  <h5>by {{ this.project.author }}</h5>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </template>
+      </template>
 
-    <template v-else>
-      <p>Burodogah</p>
-    </template>
+      <template v-else>
+        <p>Burodogah</p>
+      </template>
+    </main>
   </div>
 </template>
 

@@ -18,6 +18,8 @@ main {
 
 footer {
 
+    padding: 2.5rem 0;
+
     & button {
         background-color: white;
         border: 1px solid;
